@@ -1,12 +1,10 @@
-import {useState} from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import avatar from "../../img/avatar.png";
+import avatar from "../../img/avatar.jfif";
 import { signout } from "../../utils/icons";
 import { menuItems } from "../../utils/menuItems";
 
-
-
-function Navigation({active, setActive}) {
+function Navigation({ active, setActive }) {
   return (
     <NavStyled>
       <div className="user-con">
@@ -18,25 +16,24 @@ function Navigation({active, setActive}) {
       </div>
       <ul className="menu-items">
         {menuItems.map((item) => {
-          return <li
-            key={item.id}
-            onClick={() =>setActive(item.id)}
-            className={active === item.id ? 'active': ""}
-          >
-            {item.icon}
-            <span>{item.title}</span>
-          </li>
+          return (
+            <li
+              key={item.id}
+              onClick={() => setActive(item.id)}
+              className={active === item.id ? "active" : ""}
+            >
+              {item.icon}
+              <span>{item.title}</span>
+            </li>
+          );
         })}
       </ul>
       <div className="bottom-nav">
-        <li>
-          {signout} Sign Out
-        </li>
+        <li>{signout} Sign Out</li>
       </div>
     </NavStyled>
   );
 }
-
 
 const NavStyled = styled.nav`
     padding: 2rem 1.5rem;
